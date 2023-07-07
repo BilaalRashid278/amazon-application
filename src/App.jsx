@@ -1,14 +1,19 @@
-import React from 'react'
-
 import './App.css'
+import Header from './Components/Header'
+// import { BrowserRouter,Routes,Route } from 'react-router-dom'
+// import Navbar from "./Components/Navbar"
+
 
 function App() {
 
   return (
-    <React.Fragment>
-     
-    </React.Fragment>
+    <div>
+      <Header/>
+    </div>
   )
 }
 
 export default App
+      
+        
+

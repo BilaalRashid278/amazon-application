@@ -1,42 +1,94 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+:root{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 10px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.line-example {
+  position: relative;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.line-example::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 0.5px;
+  background-color: black;
+}
+.line-example::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 30%;
+  height: 0.5px;
+  background-color: black;
+}
+
+.line-example::before {
+  left: 0;
+}
+
+.line-example::after {
+  right: 0;
+}
+
+
+.line {
+  position: relative;
+}
+
+.line::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 0.5px;
+  background-color: black;
+}
+.line::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 45%;
+  height: 0.5px;
+  background-color: black;
+}
+
+.line::before {
+  left: 0;
+}
+
+.line::after {
+  right: 0;
+}
+
+@media screen and (max-width : 768px){
+  .line-example::before{
+    width: 27%;
   }
-  to {
-    transform: rotate(360deg);
+  .line-example::after{
+    width: 27%;
+  }
+  .line::before{
+    width: 44%;
+  }
+  .line::after{
+    width: 44%;
   }
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+@media screen and (max-width : 640px){
+  .line-example::before{
+    width: 24%;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+  .line-example::after{
+    width: 24%;
+  }
+  .line::before{
+    width: 43%;
+  }
+  .line::after{
+    width: 43%;
+  }
 }
