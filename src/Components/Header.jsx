@@ -5,8 +5,19 @@ import SideMenu from './SideMenu'
 import ChooseLocation from './ChooseLocation'
 import { useState } from 'react'
 const Header = () => {
-  const [CountryName,setCountryName] = useState("Pakistan");
-  let NameofCountry = "";
+  const [showLocation,setShowLocation] = useState("hidden");
+  const [SelectedNameof,setSelectedNameof] = useState("Afganistan");
+  const ShowChooseLocation = () => {
+    if(showLocation === "hidden"){
+      setShowLocation("block");
+    }else{
+      setShowLocation("hidden");
+    }
+  }
+  const NameSelectedfunc = (SelectedName) => {
+    let SelectedValue = SelectedName.value
+    setSelectedNameof(SelectedValue);
+  };
   return (
     <React.Fragment>
       <header className="block">
@@ -15,13 +26,13 @@ const Header = () => {
           <span className='inline-block hover:border border-1 py-[-10px] px-2 cursor-pointer'>
               <img src={amazon} alt="Amazon logo" className='h-[30px] md:h-[30px] mt-6 md:mt-5 xl:h-[40px] xl:mt-8 xl:px-[4] '/>
           </span>
-          <div className='hidden md:flex text-white hover:border cursor-pointer p-2'>
+          <div onClick={ShowChooseLocation} className='hidden md:flex text-white hover:border cursor-pointer p-2'>
             {LocationIcon}
-            <p className='opacity-[80%] text-[0.9rem] xl:text-[1.2rem]'>Deliver to <span className='font-extrabold text-[1.1rem] xl:text-[1.4rem] block'>{CountryName}</span></p>
+            <p className=' opacity-[80%] text-[0.9rem] xl:text-[1.2rem]'>Deliver to <span className='font-extrabold text-[1.1rem] xl:text-[1.4rem] block'>{SelectedNameof}</span></p>
           </div>
         </div>
       </header>
-      <ChooseLocation NameofCountry={NameofCountry}/>
+      <ChooseLocation  showLocate={showLocation} ShowChooseLocationFuntion={ShowChooseLocation} NameSelectedfunc={NameSelectedfunc} />
         
     </React.Fragment>
   )

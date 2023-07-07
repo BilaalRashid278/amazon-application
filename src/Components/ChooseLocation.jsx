@@ -1,10 +1,16 @@
 // import { useState } from "react"
 import "../App.css"
 import { MyCountries } from "../utils/Constant"
-const ChooseLocation = () => {
- 
+import PropTypes from 'prop-types';
+const ChooseLocation = ({showLocate,ShowChooseLocationFuntion,NameSelectedfunc}) => {
+  let SelectedName = document.getElementById("CountrySelector");
+  const functionHandler = () => {
+      NameSelectedfunc(SelectedName);
+      ShowChooseLocationFuntion();
+  }
   return (
-    <div className="flex bg-yellow-300 justify-center w-[100%] relative h-[calc(100vh-55px)] md:h-[calc(100vh-65px)] z-50">
+    <div className={`${showLocate}`}>
+       <div className="flex justify-center w-[100%] relative h-[calc(100vh-55px)] md:h-[calc(100vh-65px)] z-50">
         
         <div className="w-[280px] sm:w-[320px] h-[370px] md:w-[370px] md:h-[380px] bg-white absolute top-[20px] rounded-lg shadow-c2">
             
@@ -37,20 +43,28 @@ const ChooseLocation = () => {
                   </div>
 
                   <div>
-                        <select className="w-[100%] text-2xl py-2 rounded-md px-3 border border-[black]/[0.7] outline-none">{MyCountries.map((country,index)=>{
+                        <select id="CountrySelector" className="w-[100%] text-2xl py-2 rounded-md px-3 border border-[black]/[0.7] outline-none">{MyCountries.map((country,index)=>{
                             return (<><option key={index}>{country.name}</option></>)
                         })}</select>
                   </div>
                     
                     <div className="w-[100%] flex justify-end">
-                        <button className=" px-6 py-[6px] bg-yellow-400 text-lg font-semibold rounded-lg">Done</button>
+                        <button onClick={()=>{
+                            functionHandler()
+                        }} className=" px-6 py-[6px] bg-yellow-400 text-lg font-semibold rounded-lg">Done</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    </div>
   )
 }
-                
+         
+ChooseLocation.propTypes = {
+  showLocate : PropTypes.string.isRequired,
+  ShowChooseLocationFuntion : PropTypes.func.isRequired,
+  NameSelectedfunc : PropTypes.func.isRequired
+}
 
 export default ChooseLocation
