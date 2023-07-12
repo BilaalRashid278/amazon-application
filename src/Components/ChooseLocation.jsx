@@ -1,4 +1,4 @@
-// import { useState } from "react"
+
 import "../App.css"
 import { MyCountries } from "../utils/Constant"
 import PropTypes from 'prop-types';
@@ -10,9 +10,9 @@ const ChooseLocation = ({showLocate,ShowChooseLocationFuntion,NameSelectedfunc})
   }
   return (
     <div className={`${showLocate}`}>
-       <div className="flex justify-center w-[100%] relative h-[calc(100vh-55px)] md:h-[calc(100vh-65px)] z-50">
+       <div className="flex justify-center bg-slate-500 absolute  left-[50%] translate-x-[-50%] translate-y-[12%] z-50">
         
-        <div className="w-[280px] sm:w-[320px] h-[370px] md:w-[370px] md:h-[380px] bg-white absolute top-[20px] rounded-lg shadow-c2">
+        <div className="w-[280px] sm:w-[320px] h-[370px] md:w-[370px] md:h-[380px] bg-white rounded-lg shadow-c2">
             
             <div className="flex items-center pl-10 h-[18%] bg-[#F0F2F2] rounded-t-lg  border-1 border-bottom-[#D5D9D9]">
                 <h1 className="font-bold text-2xl">Choose your location</h1>
